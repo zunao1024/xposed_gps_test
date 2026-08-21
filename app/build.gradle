@@ -1,0 +1,33 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.example.forcegps'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.example.forcegps"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    // Xposed API - 仅在编译期引入，不打入最终 APK
+    compileOnly 'de.robv.android.xposed:api:82'
+}
